@@ -19,6 +19,7 @@
 		B63829C216EE50B200EA803D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63829C016EE50B200EA803D /* MainStoryboard.storyboard */; };
 		B63829C516EE50B200EA803D /* STEMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63829C416EE50B200EA803D /* STEMasterViewController.m */; };
 		B63829C816EE50B200EA803D /* STEDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63829C716EE50B200EA803D /* STEDetailViewController.m */; };
+		B64E395416EE6E0C009DB245 /* STESimpleTextDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B64E395316EE6E0C009DB245 /* STESimpleTextDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		B63829C616EE50B200EA803D /* STEDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STEDetailViewController.h; sourceTree = "<group>"; };
 		B63829C716EE50B200EA803D /* STEDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STEDetailViewController.m; sourceTree = "<group>"; };
 		B63829CE16EE51DE00EA803D /* SimpleTextEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimpleTextEditor.entitlements; sourceTree = "<group>"; };
+		B64E395216EE6E0C009DB245 /* STESimpleTextDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STESimpleTextDocument.h; sourceTree = "<group>"; };
+		B64E395316EE6E0C009DB245 /* STESimpleTextDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STESimpleTextDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				B63829CE16EE51DE00EA803D /* SimpleTextEditor.entitlements */,
 				B63829B716EE50B200EA803D /* STEAppDelegate.h */,
 				B63829B816EE50B200EA803D /* STEAppDelegate.m */,
+				B64E395216EE6E0C009DB245 /* STESimpleTextDocument.h */,
+				B64E395316EE6E0C009DB245 /* STESimpleTextDocument.m */,
 				B63829C016EE50B200EA803D /* MainStoryboard.storyboard */,
 				B63829C316EE50B200EA803D /* STEMasterViewController.h */,
 				B63829C416EE50B200EA803D /* STEMasterViewController.m */,
@@ -185,6 +190,7 @@
 				B63829B916EE50B200EA803D /* STEAppDelegate.m in Sources */,
 				B63829C516EE50B200EA803D /* STEMasterViewController.m in Sources */,
 				B63829C816EE50B200EA803D /* STEDetailViewController.m in Sources */,
+				B64E395416EE6E0C009DB245 /* STESimpleTextDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
