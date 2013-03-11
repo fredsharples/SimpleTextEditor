@@ -12,6 +12,8 @@
 
 #import "STESimpleTextDocument.h"
 
+#import "STEDetailViewController.h"
+
 NSString* STEDocFilenameExtension = @"stedoc";
 
 NSString* DisplayDetailSegue = @"DisplayDetailSegue";
@@ -28,6 +30,26 @@ NSString* DocumentEntryCell = @"DocumentEntryCell";
 @implementation STEMasterViewController
 
 NSMutableArray * documents;
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if (![segue.identifier isEqualToString:DisplayDetailSegue])
+        return;
+    
+    // Get the detail view controller.
+    STEDetailViewController* destVC =
+    (STEDetailViewController*)segue.destinationViewController;
+    
+    // Find the correct dictionary from the documents array.
+    NSIndexPath *cellPath = [self.tableView indexPathForSelectedRow];
+    UITableViewCell *theCell = [self.tableView cellForRowAtIndexPath:cellPath];
+    NSURL *theURL = [documents objectAtIndex:[cellPath row]];
+    
+    // Assign the URL to the detail view controller and
+    // set the title of the view controller to the doc name.
+    destVC.detailItem = theURL;
+    destVC.navigationItem.title = theCell.textLabel.text;
+}
+
 
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle

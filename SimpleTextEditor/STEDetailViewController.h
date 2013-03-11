@@ -14,5 +14,7 @@
 
 @property (strong, nonatomic) NSURL* detailItem;
 
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end
