@@ -40,6 +40,7 @@
 		B63829C416EE50B200EA803D /* STEMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STEMasterViewController.m; sourceTree = "<group>"; };
 		B63829C616EE50B200EA803D /* STEDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STEDetailViewController.h; sourceTree = "<group>"; };
 		B63829C716EE50B200EA803D /* STEDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STEDetailViewController.m; sourceTree = "<group>"; };
+		B63829CE16EE51DE00EA803D /* SimpleTextEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SimpleTextEditor.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		B63829AE16EE50B200EA803D /* SimpleTextEditor */ = {
 			isa = PBXGroup;
 			children = (
+				B63829CE16EE51DE00EA803D /* SimpleTextEditor.entitlements */,
 				B63829B716EE50B200EA803D /* STEAppDelegate.h */,
 				B63829B816EE50B200EA803D /* STEAppDelegate.m */,
 				B63829C016EE50B200EA803D /* MainStoryboard.storyboard */,
@@ -267,10 +269,15 @@
 		B63829CC16EE50B200EA803D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SimpleTextEditor/SimpleTextEditor.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Frederick Sharples (5YJ3AQK5PK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleTextEditor/SimpleTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "SimpleTextEditor/SimpleTextEditor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -278,10 +285,15 @@
 		B63829CD16EE50B200EA803D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SimpleTextEditor/SimpleTextEditor.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Frederick Sharples (5YJ3AQK5PK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleTextEditor/SimpleTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "SimpleTextEditor/SimpleTextEditor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -305,6 +317,7 @@
 				B63829CD16EE50B200EA803D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
