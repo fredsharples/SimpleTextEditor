@@ -18,6 +18,8 @@ NSString* DisplayDetailSegue = @"DisplayDetailSegue";
 
 NSString* STEDocumentsDirectoryName = @"Documents";
 
+NSString* DocumentEntryCell = @"DocumentEntryCell";
+
 @interface STEMasterViewController () {
     NSMutableArray *_objects;
 }
@@ -26,6 +28,60 @@ NSString* STEDocumentsDirectoryName = @"Documents";
 @implementation STEMasterViewController
 
 NSMutableArray * documents;
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSURL *fileURL = [documents objectAtIndex:[indexPath row]];
+        
+        // Don't use file coordinators on the app's main queue.
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSFileCoordinator *fc = [[NSFileCoordinator alloc]
+                                     initWithFilePresenter:nil];
+            [fc coordinateWritingItemAtURL:fileURL
+                                   options:NSFileCoordinatorWritingForDeleting
+                                     error:nil
+                                byAccessor:^(NSURL *newURL) {
+                                    NSFileManager *fm = [[NSFileManager alloc] init];
+                                    [fm removeItemAtURL:newURL error:nil];
+                                }];
+        });
+        
+        // Remove the URL from the documents array.
+        [documents removeObjectAtIndex:[indexPath row]];
+        
+        // Update the table UI. This must happen after
+        // updating the documents array.
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+
+- (UITableViewCell*)tableView:(UITableView *)tableView
+        cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *newCell = [tableView dequeueReusableCellWithIdentifier:DocumentEntryCell];
+    if (!newCell)
+        newCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                         reuseIdentifier:DocumentEntryCell];
+    
+    if (!newCell)
+        return nil;
+    
+    // Get the doc at the specified row.
+    NSURL *fileURL = [documents objectAtIndex:[indexPath row]];
+    
+    // Configure the cell.
+    newCell.textLabel.text = [[fileURL lastPathComponent] stringByDeletingPathExtension];
+    return newCell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section {
+    return [documents count];
+}
+
 
 - (IBAction)addDocument:(id)sender {
     // Disable the Add button while creating the document.
@@ -101,6 +157,7 @@ NSMutableArray * documents;
 
 - (void)awakeFromNib
 {
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     if (!documents){
         documents = [[NSMutableArray alloc] init];
     }
@@ -136,24 +193,13 @@ NSMutableArray * documents;
 
 #pragma mark - Table View
 
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return _objects.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
-    return cell;
-}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -161,15 +207,7 @@ NSMutableArray * documents;
     return YES;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }
-}
+
 
 /*
 // Override to support rearranging the table view.
