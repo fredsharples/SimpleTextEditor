@@ -57,7 +57,16 @@
                             <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iCloud Documents" id="36"/>
+                    <navigationItem key="navigationItem" title="iCloud Documents" id="36">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="VJH-Sh-sMQ">
+                            <connections>
+                                <action selector="addDocument:" destination="12" id="LRl-ca-dwY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="VJH-Sh-sMQ" id="Zbj-rO-l8c"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,6 +116,10 @@
         </class>
         <class className="STEMasterViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/STEMasterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addDocument:"/>
+                <relationship kind="outlet" name="addButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

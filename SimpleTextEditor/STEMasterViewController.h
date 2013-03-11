@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface STEMasterViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
 
 @end
