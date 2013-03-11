@@ -12,19 +12,15 @@
 - (void)configureView;
 @end
 
-@implementation STEDetailViewController
+@implementation STEDetailViewController{
+STESimpleTextDocument* _document;
+}
+
+@synthesize detailItem = _detailItem;
+@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
 
 - (void)configureView
 {
