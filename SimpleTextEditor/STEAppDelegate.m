@@ -10,8 +10,21 @@
 
 @implementation STEAppDelegate
 
+//FS - Grand Central Dispatch call..
+- (void)initializeiCloudAccess {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if ([[NSFileManager defaultManager]
+             URLForUbiquityContainerIdentifier:nil] != nil)
+            NSLog(@"iCloud is available\n");
+        else
+            NSLog(@"This tutorial requires iCloud, but it is not available.\n");
+    });
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initializeiCloudAccess];
     // Override point for customization after application launch.
     return YES;
 }
