@@ -276,14 +276,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SimpleTextEditor/SimpleTextEditor.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Frederick Sharples (5YJ3AQK5PK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Fred Sharples (SUBARUBXUX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleTextEditor/SimpleTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "SimpleTextEditor/SimpleTextEditor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
+				PROVISIONING_PROFILE = "9AADCBE8-4459-40F4-A128-3216B1F77C60";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -292,14 +292,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SimpleTextEditor/SimpleTextEditor.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Frederick Sharples (5YJ3AQK5PK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Fred Sharples (SUBARUBXUX)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleTextEditor/SimpleTextEditor-Prefix.pch";
 				INFOPLIST_FILE = "SimpleTextEditor/SimpleTextEditor-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6B0A98DE-5A71-47A2-9F38-1F4261517960";
+				PROVISIONING_PROFILE = "9AADCBE8-4459-40F4-A128-3216B1F77C60";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

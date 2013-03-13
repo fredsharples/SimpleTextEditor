@@ -21,8 +21,6 @@ STESimpleTextDocument* _document;
 
 
 
-
-
 - (void)documentContentsDidChange:(STESimpleTextDocument *)document {
     dispatch_async(dispatch_get_main_queue(), ^{
         self.textView.text = document.documentText;

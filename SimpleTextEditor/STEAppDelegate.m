@@ -9,7 +9,7 @@
 #import "STEAppDelegate.h"
 
 @implementation STEAppDelegate
-
+@synthesize window = _window;
 
 //FS - Grand Central Dispatch call..
 - (void)initializeiCloudAccess {

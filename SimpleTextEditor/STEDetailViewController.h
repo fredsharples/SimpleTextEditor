@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "STESimpleTextDocument.h"
+
 @protocol STESimpleTextDocumentDelegate;
 
-@interface STEDetailViewController : UIViewController
+@interface STEDetailViewController : UIViewController<STESimpleTextDocumentDelegate>
 
 @property (strong, nonatomic) NSURL* detailItem;
 

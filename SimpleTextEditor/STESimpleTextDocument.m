@@ -9,7 +9,6 @@
 #import "STESimpleTextDocument.h"
 
 @implementation STESimpleTextDocument
-
 @synthesize documentText = _documentText;
 @synthesize delegate = _delegate;
 
@@ -24,18 +23,19 @@
                                       object:oldText];
 }
 
-- (id)contentsForType:(NSString *)typeName error:(NSError **)outError {
+- (id)contentsForType:(NSString *)typeName
+                error:(NSError *__autoreleasing *)outError {
     if (!self.documentText)
         self.documentText = @"";
     
-    NSData *docData = [self.documentText
-                       dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *docData = [self.documentText dataUsingEncoding:NSUTF8StringEncoding];
+    
     return docData;
 }
 
 - (BOOL)loadFromContents:(id)contents
                   ofType:(NSString *)typeName
-                   error:(NSError **)outError {
+                   error:(NSError *__autoreleasing *)outError {
     if ([contents length] > 0)
         self.documentText = [[NSString alloc]
                              initWithData:contents
@@ -47,7 +47,6 @@
     if (self.delegate && [self.delegate respondsToSelector:
                           @selector(documentContentsDidChange:)])
         [self.delegate documentContentsDidChange:self];
-    
     
     return YES;
 }

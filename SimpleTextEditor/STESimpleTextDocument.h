@@ -15,6 +15,7 @@
 @interface STESimpleTextDocument : UIDocument
 @property (copy, nonatomic) NSString* documentText;
 
+//@property (weak, nonatomic) id<STESimpleTextDocumentDelegate> delegate;
 @property (weak, nonatomic) id<STESimpleTextDocumentDelegate> delegate;
 
 @end
